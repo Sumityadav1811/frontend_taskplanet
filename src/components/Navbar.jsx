@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoMenuSharp } from "react-icons/io5";
 
 const Navbar = () => {
+  const [popup, setpopup] = useState(false);
   const comp = (
     <>
       <div className="hover:text-gray-700">
@@ -20,15 +21,25 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="flex justify-between px-10 py-5 bg-white">
-      <div className="text-2xl font-semibold">Task Planet</div>
-      <div className=" border p-2 border-black md:hidden">
-        <IoMenuSharp />
+    <>
+      <div className="flex justify-between px-10 py-5 bg-white">
+        <div className="text-2xl font-semibold">Task Planet</div>
+        <div
+          className=" border p-2 border-black md:hidden"
+          onClick={() => {
+            setpopup(!popup);
+          }}
+        >
+          <IoMenuSharp />
+        </div>
+        <div className=" hidden md:flex gap-8 text-2xl font-semibold ">
+          {comp}
+        </div>
       </div>
-      <div className=" hidden md:text-2xl md:font-semibold  md:flex gap-10">
-        {comp}
-      </div>
-    </div>
+      {popup == true && (
+        <div className="flex flex-col border p-2 md:hidden">{comp}</div>
+      )}
+    </>
   );
 };
 
