@@ -36,7 +36,7 @@ const History = () => {
         historyData.map((entry) => (
           <div
             key={entry._id}
-            className=" flex justify-around gap-16 items-center bg-white rounded-lg shadow-slate-500 shadow-md mx-10 my-5 border p-6 w-1/2 text-green-600 font-medium"
+            className=" sm:w-auto flex justify-around gap-16 items-center bg-white rounded-lg shadow-slate-500 shadow-md mx-10 my-5 border p-6  text-green-600 font-medium md:w-1/2"
           >
             <div className="font-semibold">{entry.userId?.name} </div>
             <div>
