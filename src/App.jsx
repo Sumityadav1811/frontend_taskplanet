@@ -40,7 +40,11 @@ const App = () => {
           <Route
             path="/"
             element={
-              loading ? <h1>Loading......</h1> : <Reedem users={users} />
+              loading ? (
+                <h1>Loading...... Please Wait for a Moment</h1>
+              ) : (
+                <Reedem users={users} />
+              )
             }
           />
           <Route path="/leaderboard" element={<Leaderboard users={users} />} />
